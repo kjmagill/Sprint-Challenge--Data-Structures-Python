@@ -42,27 +42,21 @@ class BSTNode:
 
     # The contain() method returns True if the tree contains the value, or False if it does not
     def contains(self, target):
-        done = False
-        # create a variable called current and set it equal to the current node in the tree
-        current = self
-        # work through the tree, checking to see if the target value is contained in any current node's value
-        while done == False:
-            # if the current node's value is equal to the target value, then...
-            if current.value == target:
-                # return True and complete the contains() method
+        # if the target value is equal to the current node's value, return True
+        if target == self.value:
                 return True
-            # else, if the current node has no left node and no right node, then...
-            elif current.left is None and current.right is None:
-                # return False and complete the contains() method
-                return False
-            # else, if the target value is less than the current node's value, then...
-            elif target < current.value:
-                # set the variable { current } to be the current node's left node, then repeat the contains() method
-                current = current.left
-            # otherwise
-            else:
-                # set the variable { current } to be the current node's right node, then repeat the contains() method
-                current = current.right
+
+        # if the target value is greater than the current node's value and a right child exists
+        if target > self.value and self.right is not None:
+            # return the results of executing the contains() method on the right child
+            return self.right.contains(target)
+        # else, if the target value is less than the current node's value and a left child exists
+        elif target < self.value and self.left is not None:
+            # return the results of executing the contains() method on the left child
+            return self.left.contains(target)
+        else:
+            # otherwise, return False
+            return False
 
     # The get_max() method returns the maximum value found in the tree
     def get_max(self):
