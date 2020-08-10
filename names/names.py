@@ -36,8 +36,5 @@ for name in names_2:
 end_time = time.time()
 print (f"{len(duplicates)} duplicates:\n\n{', '.join(duplicates)}\n\n")
 print (f"runtime: {end_time - start_time} seconds")
-
-# ---------- Stretch Goal -----------
-# Python has built-in tools that allow for a very efficient approach to this problem
-# What's the best time you can accomplish?  Thare are no restrictions on techniques or data
-# structures, but you may not import any additional libraries that you did not write yourself.
+print('\nThe original run-time used nested for statements and achieved a runtime of over 7.6 seconds')
+print('My new solution uses a Binary Search Tree class and cuts the runtime down to less than 0.14 seconds\n')
